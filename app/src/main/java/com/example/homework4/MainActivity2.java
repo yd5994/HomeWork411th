@@ -50,17 +50,15 @@ public class MainActivity2 extends AppCompatActivity{
 
         listView = findViewById(R.id.listview);
 
-        Toast.makeText(this, String.valueOf(type), Toast.LENGTH_SHORT).show();
         numbers[0]=Double.valueOf(Fnumber);
-        if(type){//Arithmetic progression
+        if(!type){//Arithmetic progression
             for(int i=1;i<numbers.length;i++){
-                numbers[i]=numbers[i-1]*Double.valueOf(difference);
+                numbers[i]=numbers[i-1]+Double.valueOf(difference);
             }
         }
         else{//Geometric series
-
             for(int i=1;i<numbers.length;i++){
-                numbers[i]=numbers[i-1]+Double.valueOf(difference);
+                numbers[i]=numbers[i-1]*Double.valueOf(difference);
             }
         }
 
