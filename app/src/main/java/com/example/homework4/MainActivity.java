@@ -1,5 +1,6 @@
 package com.example.homework4;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +10,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -29,6 +32,32 @@ public class MainActivity extends AppCompatActivity {
         et2 = findViewById(R.id.editTextNumber4);
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /**
+         * The function creates the Menu Option in MainActivity
+         * @return: return true
+         */
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main,menu);
+        return true;
+    }
+
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        /**
+         * The function starts when you click a item in OptionMenu
+         * @param: the function get the item that pressed
+         * @return: the function should return true
+         */
+        String st = item.getTitle().toString();
+        if (st.equals("credits")) {
+            Intent si = new Intent(this,credits.class);
+            startActivity(si);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void onswitch(View view) {

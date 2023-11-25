@@ -2,6 +2,7 @@ package com.example.homework4;
 
 import static java.lang.Double.parseDouble;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +10,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,6 +43,7 @@ public class MainActivity2 extends AppCompatActivity{
         setContentView(R.layout.activity_main2);
         Intent gi = getIntent();
 
+        type=false;
         type = gi.getBooleanExtra("type",false);
         Fnumber = gi.getStringExtra("Fnumber");
         difference = gi.getStringExtra("difference");
@@ -73,6 +78,31 @@ public class MainActivity2 extends AppCompatActivity{
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /**
+         * The function creates the Menu Option in MainActivity
+         * @return: return true
+         */
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main,menu);
+        return true;
+    }
+
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        /**
+         * The function starts when you click a item in OptionMenu
+         * @param: the function get the item that pressed
+         * @return: the function should return true
+         */
+        String st = item.getTitle().toString();
+        if (st.equals("credits")) {
+            Intent si = new Intent(this,MainActivity2.class);
+            startActivity(si);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
 
